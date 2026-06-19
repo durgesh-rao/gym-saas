@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gym SaaS | Login</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    </head>
+
+    <body class="bg-light">
+        <div class="container vh-100 d-flex justify-content-center align-items-center">
+            <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px">
+                <h3 class="text-center mb-4">Admin Login</h3>
+                <div id="errorMsg" class="text-danger mb-3"></div>
+
+                <form id="loginForm">
+                 <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter email"/>
+                 </div>
+                 <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                         <div class="input-group">
+                            <input type="password" id="password" class="form-control" placeholder="Enter password"/>
+                           <span class="input-group-text" id="togglePassword" style="cursor: pointer">
+                                <i class="bi bi-eye"></i></span>
+                        </div>
+                 </div>
+                    <button type="submit" id="loginBtn" class="btn btn-primary w-100">Login</button>
+                </form>
+            </div>
+        </div>
+      <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="js/login.js"></script>
+    </body>
+</html>
