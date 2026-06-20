@@ -46,7 +46,7 @@ php artisan migrate
 npm run dev
 php artisan serve
 ```
- Start Apache and MySQL using XAMPP.
+ Start Apache and MySQL using XAMPP. <br>
  http://localhost/gym-saas/public/frontend/login.html
 ```
 
