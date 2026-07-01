@@ -16,6 +16,7 @@ if (memberTable) {
             memberTable.innerHTML = `<tr><td colspan="6">No Data Found</td></tr>`;
              return;
         }
+        document.getElementById('totalMembers').textContent = members.length;
 
         let tableData = ``;
 

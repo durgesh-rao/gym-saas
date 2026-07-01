@@ -1,22 +1,20 @@
 const token = localStorage.getItem("token");
 
 if (!token) {
-    window.location.href = "login.html";
+    window.location.href = "/gym-saas/public/frontend/login.html";
 }
 //// checking whether the user is logged in or not. using token.
 fetch("http://localhost/gym-saas/public/api/user", {
     headers: {
         "Authorization": "Bearer " + token
     }
-})
-    .then(res => {
+}).then(res => {
         if (res.status === 401) {
             localStorage.removeItem("token");
-            window.location.href = "login.html";
+            window.location.href = "/gym-saas/public/frontend/login.html";
         }
         return res.json();
-    })
-    .then(data => {
+    }).then(data => {
         document.getElementById("username").innerText = data.name;
         console.log(data);
     });
@@ -50,3 +48,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 });
+
+////permission check for user create
+   fetch("http://localhost/gym-saas/public/api/permissions", {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json"
+             }
+    }).then(res => {
+        return res.json();
+    }).then(data => {
+        if (data.canCreateUser) {
+        document.getElementById("createUser").style.display = "block";
+        }
+    });

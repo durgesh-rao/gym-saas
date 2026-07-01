@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AuthController extends Controller
 {
@@ -24,7 +25,7 @@ class AuthController extends Controller
         $user = Auth::user();
         ///// if user have old tokens then delete first
         $user->tokens()->delete();
-       ////// new token create
+        ////// new token create
         $token = $user->createToken('gym-api-token')->plainTextToken;
 
         return response()->json([
@@ -39,6 +40,13 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Logged out successfully'
+        ]);
+    }
+
+    public function permissions()
+    {
+        return response()->json([
+            'canCreateUser' => Gate::allows('create-user')
         ]);
     }
 }
